@@ -334,10 +334,10 @@ func (c *Server) startServer(ctx context.Context) error {
 	etcdCfg.ClientTLSInfo = c.cfg.ClientSC.TLSInfo()
 	etcdCfg.SelfSignedCertValidity = 5
 	etcdCfg.InitialCluster = initialCluster(c.cfg.initialPURLs)
-	etcdCfg.LPUrls, _ = types.NewURLs([]string{peerURL(c.cfg.BindAddress, c.cfg.PeerSC.TLSEnabled())})
-	etcdCfg.APUrls, _ = types.NewURLs([]string{peerURL(c.cfg.PrivateAddress, c.cfg.PeerSC.TLSEnabled())})
-	etcdCfg.LCUrls, _ = types.NewURLs([]string{ClientURL(c.cfg.BindAddress, c.cfg.ClientSC.TLSEnabled())})
-	etcdCfg.ACUrls, _ = types.NewURLs([]string{ClientURL(c.cfg.PublicAddress, c.cfg.ClientSC.TLSEnabled())})
+	etcdCfg.ListenPeerUrls, _ = types.NewURLs([]string{peerURL(c.cfg.BindAddress, c.cfg.PeerSC.TLSEnabled())})
+	etcdCfg.AdvertisePeerUrls, _ = types.NewURLs([]string{peerURL(c.cfg.PrivateAddress, c.cfg.PeerSC.TLSEnabled())})
+	etcdCfg.ListenClientUrls, _ = types.NewURLs([]string{ClientURL(c.cfg.BindAddress, c.cfg.ClientSC.TLSEnabled())})
+	etcdCfg.AdvertiseClientUrls, _ = types.NewURLs([]string{ClientURL(c.cfg.PublicAddress, c.cfg.ClientSC.TLSEnabled())})
 	etcdCfg.ListenMetricsUrls = append(metricsURLs(c.cfg.BindAddress), metricsURLs("127.0.0.1")...)
 	etcdCfg.Metrics = "extensive"
 	etcdCfg.QuotaBackendBytes = c.cfg.DataQuota

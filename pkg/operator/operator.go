@@ -67,8 +67,8 @@ type Operator struct {
 
 // Config is the global configuration for an instance of ECO.
 type Config struct {
-	CheckInterval        time.Duration `yaml:"check-interval"`
-	UnhealthyMemberTTL 	 time.Duration `yaml:"unhealthy-member-ttl"`
+	CheckInterval      time.Duration `yaml:"check-interval"`
+	UnhealthyMemberTTL time.Duration `yaml:"unhealthy-member-ttl"`
 
 	Etcd     etcd.EtcdConfiguration `yaml:"etcd"`
 	ASG      asg.Config             `yaml:"asg"`
