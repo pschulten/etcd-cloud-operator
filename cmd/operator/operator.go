@@ -39,9 +39,6 @@ func main() {
 	flagLogLevel := flag.String("log-level", "info", "Define the logging level.")
 	flag.Parse()
 
-	// sanity check
-	logger.Logger.Info("THIS A MESSAGE TO YOU-HU-HU")
-
 	// Initialize logging system.
 	logger.Configure(*flagLogLevel)
 
