@@ -302,10 +302,6 @@ func (c *Server) IsRunning() bool {
 	return c.isRunning
 }
 
-func (c *Server) Version() string {
-	return c.server.Server.ClusterVersion().String()
-}
-
 func (c *Server) Stop(graceful, snapshot bool) {
 	if !c.isRunning {
 		return

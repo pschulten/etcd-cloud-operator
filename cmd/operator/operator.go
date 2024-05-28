@@ -48,6 +48,8 @@ func main() {
 		zap.S().With(zap.Error(err)).Fatal("failed to load configuration")
 	}
 
+	logger.Logger.Info("THIS A MESSAGE TO YOU-HU-HU")
+
 	// Run.
 	operator.New(config.ECO).Run()
 }

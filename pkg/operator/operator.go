@@ -129,7 +129,6 @@ func (s *Operator) evaluate() error {
 	// Output.
 	if s.server == nil {
 		s.server = etcd.NewServer(serverConfig(s.cfg, asgSelf, s.snapshotProvider))
-		zap.S().Infof("Running version %v", s.server.Version())
 	}
 
 	s.etcdRunning = s.server.IsRunning()
