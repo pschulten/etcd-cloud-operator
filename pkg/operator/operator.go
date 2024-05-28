@@ -67,8 +67,8 @@ type Operator struct {
 
 // Config is the global configuration for an instance of ECO.
 type Config struct {
-	CheckInterval        time.Duration `yaml:"check-interval"`
-	UnhealthyMemberTTL 	 time.Duration `yaml:"unhealthy-member-ttl"`
+	CheckInterval      time.Duration `yaml:"check-interval"`
+	UnhealthyMemberTTL time.Duration `yaml:"unhealthy-member-ttl"`
 
 	Etcd     etcd.EtcdConfiguration `yaml:"etcd"`
 	ASG      asg.Config             `yaml:"asg"`
@@ -129,6 +129,7 @@ func (s *Operator) evaluate() error {
 	// Output.
 	if s.server == nil {
 		s.server = etcd.NewServer(serverConfig(s.cfg, asgSelf, s.snapshotProvider))
+		zap.S().Infof("Running version %v", s.server.Version())
 	}
 
 	s.etcdRunning = s.server.IsRunning()
