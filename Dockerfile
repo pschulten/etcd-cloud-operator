@@ -2,8 +2,6 @@
 #See: https://github.com/golang/go/issues/29278#issuecomment-447537558
 FROM golang:1.22.3-alpine3.20 AS build-env
 
-ARG VERSION=v3.5.13
-
 WORKDIR /go/src/github.com/quentin-m/etcd-cloud-operator
 
 # Install & cache dependencies
