@@ -1,5 +1,7 @@
 # etcd-cloud-operator
 
+[![Docker Repository on Quay](https://quay.io/repository/quentin_m/etcd-cloud-operator/status "Docker Repository on Quay")](https://quay.io/repository/quentin_m/etcd-cloud-operator)
+
 Maintained by a former CoreOS engineer and inspired from the [etcd-operator](https://github.com/coreos/etcd-operator)
 designed for Kubernetes, the etcd-cloud-operator automatically bootstraps,
 monitors, snapshots and recovers etcd clusters on cloud providers.
